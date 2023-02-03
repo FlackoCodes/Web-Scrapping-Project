@@ -45,7 +45,6 @@ for page in range(1, 21):
     # Parse the HTML content of the page
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    # Find all of the product divs on the page
     product_divs = soup.find_all('div', {'class': 's-result-item'})
 
     # Loop over the product divs
@@ -56,8 +55,7 @@ for page in range(1, 21):
         # Write the scraped data to the CSV file
         writer.writerow(product_data)
 
-    # Wait 15 seconds before making the next request to avoid being blocked
     time.sleep(15)
 
-# Close the CSV file
+
 file.close()
